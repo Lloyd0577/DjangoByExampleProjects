@@ -35,12 +35,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'account',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admin',
 
 ]
 
@@ -124,9 +124,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.163.com'
+#EMAIL_HOST_USER = '13587970697@163.com'
+#EMAIL_HOST_PASSWORD = 'asd1147148388'
+#EMAIL_PORT = 25
+
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.163.com'
-EMAIL_HOST_USER = '13587970697@163.com'
-EMAIL_HOST_PASSWORD = 'asd1147148388'
-EMAIL_PORT = 25
-# EMAIL_FROM = '<13587970697@163.com>'
+EMAIL_HOST = 'smtp.qq.com'                       #SMTP地址 例如: smtp.163.com
+EMAIL_PORT = 25                       #SMTP端口 例如: 25
+EMAIL_HOST_USER = '651519531@qq.com'                  #qq的邮箱 例如: xxxxxx@163.com
+EMAIL_HOST_PASSWORD = 'odymhbowlsmnbdih'              #我的邮箱密码 例如  xxxxxxxxx
+EMAIL_SUBJECT_PREFIX = u'django'       #为邮件Subject-line前缀,默认是'[django]'
+EMAIL_USE_TLS = True                  #与SMTP服务器通信时，是否启动TLS链接(安全链接)。默认是false
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#EMAIL_FROM = '<13587970697@163.com>'
