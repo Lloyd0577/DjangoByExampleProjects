@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'social.apps.django_app.default',
 
 ]
 
@@ -123,7 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_HOST = 'smtp.163.com'
 #EMAIL_HOST_USER = '13587970697@163.com'
@@ -141,3 +143,7 @@ EMAIL_SUBJECT_PREFIX = u'django'       #为邮件Subject-line前缀,默认是'[d
 EMAIL_USE_TLS = True                  #与SMTP服务器通信时，是否启动TLS链接(安全链接)。默认是false
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 #EMAIL_FROM = '<13587970697@163.com>'
+AUTHENTICATION_BACKENDS=(
+        'django.contrib.auth.backends.ModelBackend',
+        'account.authentication.EmailAuthBackend',
+        )
